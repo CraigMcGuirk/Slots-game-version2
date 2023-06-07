@@ -19,5 +19,14 @@ def get_deposit():
 def main(): 
     # Assigning a return value of function "get_deposit" to variable called "deposit" 
     deposit = get_deposit()
+    balance = deposit
+
+    while True: 
+        user_input = input("Press Enter to play or Q to quit: ").lower()
+        # if the user will input Q or q game will end
+        if user_input == "q": 
+            print("\nThank you for playing, see you again soon!")
+            break
+    
 
 main()

@@ -16,6 +16,21 @@ def get_deposit():
             continue
 
 
+def get_lines():
+    while True:
+        user_input = input("\nPlease input a number of lines to bet on between 1 and 3: ")  
+
+        try: 
+            lines = int(user_input)
+
+            if lines < 1 or lines > 3:
+                print("\nLines entered must a number between 1 and 3")
+
+            return lines
+        except:
+            print("\nLines entered must a valid number")
+            continue
+
 def main(): 
     # Assigning a return value of function "get_deposit" to variable called "deposit" 
     deposit = get_deposit()
@@ -31,5 +46,6 @@ def main():
 
         print(f"\nYour balance is €{balance}")
 
+        lines = get_lines()
         
 main()

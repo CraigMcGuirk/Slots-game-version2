@@ -29,5 +29,7 @@ def main():
             print("\nThank you for playing, see you again soon!")
             break
 
+        print(f"\nYour balance is €{balance}")
 
+        
 main()

@@ -1,6 +1,6 @@
 def get_deposit():
     while True:
-        user_input = input("Please input deposit amount between 1 and 1000: ")
+        user_input = input("Please input deposit amount between €1 and €1000: ")
         # Trys to convert user_input to integer
         try: 
             deposit = int(user_input)
@@ -15,18 +15,19 @@ def get_deposit():
             print("Amount entered must a valid number\n") 
             continue
 
-    
+
 def main(): 
     # Assigning a return value of function "get_deposit" to variable called "deposit" 
     deposit = get_deposit()
     balance = deposit
 
-    while True: 
-        user_input = input("Press Enter to play or Q to quit: ").lower()
+    while True:    
+        # Take input, convert to lowercase then assign it to variable called user_input
+        user_input = input("\nPress Enter to play or Q to quit: ").lower()
         # if the user will input Q or q game will end
         if user_input == "q": 
             print("\nThank you for playing, see you again soon!")
             break
-    
+
 
 main()

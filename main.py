@@ -19,8 +19,9 @@ def get_deposit():
 
 
 def get_lines():
-    max_lines = 3
     min_lines = 1
+    max_lines = 3
+    
 
     while True:
         user_input = input(f"\nPlease input a number of lines to bet on between {min_lines} and {max_lines}: ")  

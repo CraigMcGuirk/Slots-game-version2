@@ -25,6 +25,7 @@ def get_lines():
 
             if lines < 1 or lines > 3:
                 print("\nLines entered must a number between 1 and 3")
+                continue
 
             return lines
         except:

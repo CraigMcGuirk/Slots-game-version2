@@ -1,6 +1,6 @@
 def get_deposit():
     max_amount = 900
-    
+
     while True:
         user_input = input(f"Please input deposit amount between €1 and {max_amount}: ")
         # Trys to convert user_input to integer
@@ -19,14 +19,17 @@ def get_deposit():
 
 
 def get_lines():
+    max_lines = 3
+    min_lines = 1
+
     while True:
-        user_input = input("\nPlease input a number of lines to bet on between 1 and 3: ")  
+        user_input = input(f"\nPlease input a number of lines to bet on between {min_lines} and {max_lines}: ")  
 
         try: 
             lines = int(user_input)
 
-            if lines < 1 or lines > 3:
-                print("\nLines entered must a number between 1 and 3")
+            if lines < min_lines or lines > max_lines:
+                print(f"\nLines entered must a number between {min_lines} and {max_lines}")
                 continue
 
             return lines

@@ -18,6 +18,29 @@ def get_deposit():
             continue
 
 
+def get_bet(balance): 
+    min_amount = 1
+
+    while True:
+        user_input = input(f"\nPlease enter the amount you wish to bet between €{min_amount} and €{balance}: ")
+        
+        try:
+            bet_amount = int(user_input) 
+
+            if bet_amount < min_amount:
+                print(f"\nMinimum betting amount is equal to €{min_amount}")
+                continue
+
+            if bet_amount > balance:
+                print(f"\nYour balance (€{balance}) is not sufficient to bet €{bet_amount}")
+                continue
+                
+            return bet_amount
+        except:
+            print("\nAmount entered must a valid number")
+            continue
+
+        
 def main(): 
     # Assigning a return value of function "get_deposit" to variable called "deposit" 
     deposit = get_deposit()
@@ -32,5 +55,7 @@ def main():
             break
 
         print(f"\nYour balance is €{balance}")
+
+        bet = get_bet(balance)
         
 main()

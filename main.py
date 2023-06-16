@@ -1,15 +1,20 @@
+def add_euro_sign(amount):
+    return f"€{amount}"
+
+
 def get_deposit():
+    min_amount = 1
     max_amount = 900
 
     while True:
-        user_input = input(f"Please input deposit amount between €1 and {max_amount}: ")
+        user_input = input(f"Please input deposit amount between {add_euro_sign(min_amount)} and {add_euro_sign(max_amount)}: ")
         # Trys to convert user_input to integer
         try: 
             deposit = int(user_input)
             # Checks if deposit amount is less than or equal to 0 or greater than (max_amount)
             # If the amount is less than equal to 0 or greater than (max_amount) it will loop back to the beginning and ask the user to input a valid amount
             if deposit <= 0 or deposit > max_amount: 
-                print(f"Amount must be a number between 1 and {max_amount}\n")
+                print(f"Amount must be a number between {add_euro_sign(min_amount)} and {add_euro_sign(max_amount)}\n")
                 continue
             # if inputted amount is valid it will return this amount. 
             return deposit
@@ -22,17 +27,17 @@ def get_bet(balance):
     min_amount = 1
 
     while True:
-        user_input = input(f"\nPlease enter the amount you wish to bet between €{min_amount} and €{balance}: ")
+        user_input = input(f"\nPlease enter the amount you wish to bet between {add_euro_sign(min_amount)} and {add_euro_sign(balance)}: ")
         
         try:
             bet_amount = int(user_input) 
 
             if bet_amount < min_amount:
-                print(f"\nMinimum betting amount is equal to €{min_amount}")
+                print(f"\nMinimum betting amount is equal to {add_euro_sign(min_amount)}")
                 continue
 
             if bet_amount > balance:
-                print(f"\nYour balance (€{balance}) is not sufficient to bet €{bet_amount}")
+                print(f"\nYour balance ({add_euro_sign(balance)}) is not sufficient to bet {add_euro_sign(bet_amount)}")
                 continue
                 
             return bet_amount

@@ -18,26 +18,6 @@ def get_deposit():
             continue
 
 
-def get_lines():
-    min_lines = 1
-    max_lines = 3
-    
-
-    while True:
-        user_input = input(f"\nPlease input a number of lines to bet on between {min_lines} and {max_lines}: ")  
-
-        try: 
-            lines = int(user_input)
-
-            if lines < min_lines or lines > max_lines:
-                print(f"\nLines entered must a number between {min_lines} and {max_lines}")
-                continue
-
-            return lines
-        except:
-            print("\nLines entered must a valid number")
-            continue
-
 def main(): 
     # Assigning a return value of function "get_deposit" to variable called "deposit" 
     deposit = get_deposit()
@@ -52,7 +32,5 @@ def main():
             break
 
         print(f"\nYour balance is €{balance}")
-
-        lines = get_lines()
         
 main()

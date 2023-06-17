@@ -1,3 +1,7 @@
+import random
+
+SYMBOLS_IN_WINNING_LINE = 3
+
 def add_euro_sign(amount):
     return f"€{amount}"
 
@@ -63,6 +67,11 @@ def get_symbols():
         all_symbols.extend([symbol] * count)
 
     return all_symbols
+
+
+# This all_symbols is not referring to the array in above function
+def get_winning_line(all_symbols):
+    return random.sample(all_symbols, SYMBOLS_IN_WINNING_LINE)
     
 
 def main(): 

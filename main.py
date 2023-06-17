@@ -45,11 +45,31 @@ def get_bet(balance):
             print("\nAmount entered must a valid number")
             continue
 
-        
+
+def get_symbols():
+    # This is a dictionary of Keys and Values 
+    symbols = {
+        "A": 3,
+        "B": 6,
+        "C": 9,
+        "D": 12
+    }
+
+    all_symbols = []
+    # Loop through dictionary symbols of keys(symbol) and values(count)
+    for symbol, count in symbols.items():
+        # Extending all symbols array
+        # ["A"] * 3 = ["A", "A", "A"] for reference: https://note.nkmk.me/en/python-list-initialize/
+        all_symbols.extend([symbol] * count)
+
+    return all_symbols
+    
+
 def main(): 
     # Assigning a return value of function "get_deposit" to variable called "deposit" 
     deposit = get_deposit()
     balance = deposit
+    all_symbols = get_symbols()
 
     while True:    
         # Take input, convert to lowercase then assign it to variable called user_input
@@ -62,5 +82,6 @@ def main():
         print(f"\nYour balance is €{balance}")
 
         bet = get_bet(balance)
+
         
 main()

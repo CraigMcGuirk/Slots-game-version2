@@ -72,7 +72,18 @@ def get_symbols():
 # This all_symbols is not referring to the array in above function
 def get_winning_line(all_symbols):
     return random.sample(all_symbols, SYMBOLS_IN_WINNING_LINE)
+
+
+def print_winning_line(winning_line):
+    print()
+    print(" | ".join(winning_line))
+
+
+def spin(bet, symbols):
+    winning_line = get_winning_line(symbols)
     
+    print_winning_line(winning_line)
+
 
 def main(): 
     # Assigning a return value of function "get_deposit" to variable called "deposit" 
@@ -91,6 +102,8 @@ def main():
         print(f"\nYour balance is €{balance}")
 
         bet = get_bet(balance)
+        spin(bet, all_symbols)
+    
 
         
 main()

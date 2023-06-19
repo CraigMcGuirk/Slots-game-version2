@@ -1,6 +1,24 @@
 import random
 
 SYMBOLS_IN_WINNING_LINE = 3
+SYMBOLS = {
+    "A": {
+        "count": 3,
+        "value": 5
+    },
+     "B": {
+        "count": 6,
+        "value": 4
+    },
+    "C": {
+        "count": 9,
+        "value": 3
+    },
+    "D": {
+        "count": 12,
+        "value": 2
+    }
+}
 
 def add_euro_sign(amount):
     return f"€{amount}"
@@ -51,20 +69,12 @@ def get_bet(balance):
 
 
 def get_symbols():
-    # This is a dictionary of Keys and Values 
-    symbols = {
-        "A": 3,
-        "B": 6,
-        "C": 9,
-        "D": 12
-    }
-
     all_symbols = []
-    # Loop through dictionary symbols of keys(symbol) and values(count)
-    for symbol, count in symbols.items():
+    # Loop through dictionary symbols of keys(symbol) and values(count and symbol value) nested inside SYMBOLS dictionary
+    for symbol, values in SYMBOLS.items():
         # Extending all symbols array
         # ["A"] * 3 = ["A", "A", "A"] for reference: https://note.nkmk.me/en/python-list-initialize/
-        all_symbols.extend([symbol] * count)
+        all_symbols.extend([symbol] * values["count"])
 
     return all_symbols
 

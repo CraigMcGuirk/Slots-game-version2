@@ -28,6 +28,13 @@ def print_separator_line():
     print("\n--------------------------------------------------------------------")
 
 
+def print_win_or_loss(winnings, balance):
+    if winnings > 0:
+        print(f"\nYou won! Your balance is now {add_euro_sign(balance)}")
+    else:
+        print(f"\nYou lost... Your balance is now {add_euro_sign(balance)}")
+
+
 def get_deposit():
     min_amount = 1
     max_amount = 900
@@ -138,8 +145,9 @@ def main():
         bet = get_bet(balance)
         winnings = spin(bet, all_symbols)
         balance += winnings
+
         print_separator_line()
-        print(f"\nYour new balance is {add_euro_sign(balance)}")
+        print_win_or_loss(winnings, balance)
         print_separator_line()
     
         

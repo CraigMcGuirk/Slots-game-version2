@@ -137,7 +137,7 @@ def main():
         user_input = input("\nPress Enter to play or Q to quit: ").lower()
         # if the user will input Q or q game will end
         if user_input == "q": 
-            print("\nThank you for playing, see you again soon!")
+            print(f"\nThank you for playing! Your leaving balance is {add_euro_sign(balance)}\n")
             break
 
         print(f"\nYour balance is {add_euro_sign(balance)}")

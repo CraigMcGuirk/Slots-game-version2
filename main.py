@@ -102,7 +102,7 @@ def print_winning_line(winning_line):
 
 # (Winning_line) is a list of elements 
 def calculate_winnings(winning_line, bet):
-    #symbol is defined by first_element
+    #Takes the first element in the list and assigns it to first variable
     first_element = winning_line[0]
     winnings = 0
 
@@ -113,7 +113,7 @@ def calculate_winnings(winning_line, bet):
         symbol_multiplier = SYMBOLS[first_element]["value"]
         winnings = symbol_multiplier * bet
 
-    return winnings
+    return winnings - bet
 
 
 def spin(bet, symbols):
@@ -123,7 +123,7 @@ def spin(bet, symbols):
     
     winnings = calculate_winnings(winning_line, bet)
 
-    return winnings - bet
+    return winnings 
 
 
 def main(): 

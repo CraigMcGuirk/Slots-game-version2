@@ -150,5 +150,9 @@ def main():
         print_win_or_loss(winnings, balance)
         print_separator_line()
     
-        
+        if balance <= 0:
+            print("\nYou have no money to continue playing... See you next time.\n")
+            break
+
+
 main()

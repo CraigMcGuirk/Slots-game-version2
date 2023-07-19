@@ -24,6 +24,10 @@ def add_euro_sign(amount):
     return f"€{amount}"
 
 
+def print_separator_line():
+    print("\n--------------------------------------------------------------------")
+
+
 def get_deposit():
     min_amount = 1
     max_amount = 900
@@ -89,10 +93,30 @@ def print_winning_line(winning_line):
     print(" | ".join(winning_line))
 
 
+# (Winning_line) is a list of elements 
+def calculate_winnings(winning_line, bet):
+    #symbol is defined by first_element
+    first_element = winning_line[0]
+    winnings = 0
+
+    for symbol in winning_line:
+        if first_element != symbol:
+            break
+    else: 
+        symbol_multiplier = SYMBOLS[first_element]["value"]
+        winnings = symbol_multiplier * bet
+
+    return winnings
+
+
 def spin(bet, symbols):
     winning_line = get_winning_line(symbols)
     
     print_winning_line(winning_line)
+    
+    winnings = calculate_winnings(winning_line, bet)
+
+    return winnings - bet
 
 
 def main(): 
@@ -109,11 +133,14 @@ def main():
             print("\nThank you for playing, see you again soon!")
             break
 
-        print(f"\nYour balance is €{balance}")
+        print(f"\nYour balance is {add_euro_sign(balance)}")
 
         bet = get_bet(balance)
-        spin(bet, all_symbols)
+        winnings = spin(bet, all_symbols)
+        balance += winnings
+        print_separator_line()
+        print(f"\nYour new balance is {add_euro_sign(balance)}")
+        print_separator_line()
     
-
         
 main()
